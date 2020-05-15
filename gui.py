@@ -108,10 +108,19 @@ class MyTableWidget(QWidget):
         self.tableWidget.setItem(4, 0, QTableWidgetItem("Taille ?"))
         self.tableWidget.setItem(5, 0, QTableWidgetItem("Poid ?"))
 
+        saveButton = QPushButton("Sauvegarde ?")
+        saveButton.clicked.connect(self.saveClick)
+        self.tab2.layout.addWidget(saveButton)
+
+        self.tab2.setLayout(self.tab2.layout)
+
 
         # Add tabs to widget
         self.layout.addWidget(self.tabs)
         self.setLayout(self.layout)
+
+    def saveClick(self):
+        print("save")
 
     def openClick(self):
         print("click")
