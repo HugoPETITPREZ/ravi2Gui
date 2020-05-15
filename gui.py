@@ -89,7 +89,7 @@ class MyTableWidget(QWidget):
 
         self.tab1.layout.addWidget(openButton)
         self.tab1.setLayout(self.tab1.layout)
-        self.tab1.setStyleSheet(("background-image: url(.image iut.html); background-attachment: fixed;"))
+        self.tab1.setStyleSheet(("background-image: url(./logositeweb_72ppp.png); background-attachment: fixed;"))
 
 
         #Tab 2:
