@@ -135,6 +135,10 @@ class MyTableWidget(QWidget):
         if self.tableWidget.item(5, 1):
             dictionnaire['Poids'] = self.tableWidget.item(5, 1).text()
 
+        print(dictionnaire)
+        with open("data.json", "M") as file:
+            json.dunp(dictionnaire, file)
+
     def openClick(self):
         print("click")
         nom,type = QInputDialog.getText(self,"input dialog","Votre Nom ?",QLineEdit.Normal,"")
