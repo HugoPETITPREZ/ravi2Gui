@@ -104,9 +104,9 @@ class MyTableWidget(QWidget):
         self.tableWidget.setItem(0, 0, QTableWidgetItem("nom ?"))
         self.tableWidget.setItem(1, 0, QTableWidgetItem("Prenom ?"))
         self.tableWidget.setItem(2, 0, QTableWidgetItem("Date de naissance ?"))
-        self.tableWidget.setItem(0, 1, QTableWidgetItem("Sexe ?"))
-        self.tableWidget.setItem(1, 1, QTableWidgetItem("Taille ?"))
-        self.tableWidget.setItem(2, 1, QTableWidgetItem("Poid ?"))
+        self.tableWidget.setItem(3, 0, QTableWidgetItem("Sexe ?"))
+        self.tableWidget.setItem(4, 0, QTableWidgetItem("Taille ?"))
+        self.tableWidget.setItem(5, 0, QTableWidgetItem("Poid ?"))
 
 
         # Add tabs to widget
