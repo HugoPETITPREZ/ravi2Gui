@@ -137,8 +137,8 @@ class MyTableWidget(QWidget):
             dictionnaire['Poids'] = self.tableWidget.item(5, 1).text()
 
         print(dictionnaire)
-        with open("data.json", "M") as file:
-            json.dump(dictionnaire, file)
+        with open('data.json', 'w') as fp:
+            json.dump(dictionnaire, fp)
 
     def openClick(self):
         print("click")
