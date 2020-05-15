@@ -1,12 +1,21 @@
 import sys
+
+from PyQt5 import QtCore
 from PyQt5.QtWidgets import QMainWindow, QApplication, QAction, qApp, QWidget, QVBoxLayout, QTabWidget, QPushButton, \
-    QInputDialog, QLineEdit
+    QInputDialog, QLineEdit, QTableWidget, QTableWidgetItem
+
+try:
+    _fromUtf8 = QtCore.QString.fromUtf8
+except AttributeError:
+    def _fromUtf8(s):
+        return s
 
 class Gui(QMainWindow):
 
-    def __init__(self):
+    def __init__(self,parent=None):
         super().__init__()
         self.initUI()
+
 
     def initUI(self):
         self.statusBar().showMessage('Ready')
@@ -56,3 +65,51 @@ class Gui(QMainWindow):
     def exit(self):
         print("exit")
         self.quit
+
+
+class MyTableWidget(QWidget):
+
+    def __init__(self, parent):
+        super(QWidget, self).__init__(parent)
+        self.layout = QVBoxLayout(self)
+
+        # Initialize tab screen
+        self.tabs = QTabWidget()
+        self.tab1 = QWidget()
+        self.tab2 = QWidget()
+
+
+        # Add tabs
+        self.tabs.addTab(self.tab1, "Onglet 1")
+        self.tabs.addTab(self.tab2, "Onglet 2")
+
+        self.tab1.layout = QVBoxLayout(self)
+        openButton = QPushButton("Nom ?")
+        openButton.clicked.connect(self.openClick)
+
+        self.tab1.layout.addWidget(openButton)
+        self.tab1.setLayout(self.tab1.layout)
+        self.tab1.setStyleSheet(("background-image: url(.image iut.html); background-attachment: fixed;"))
+
+
+        #Tab 2:
+        self.tableWidget = QTableWidget()
+        self.tableWidget.setRowCount(6)
+        self.tableWidget.setColumnCount(2)
+
+        self.tab2.layout = QVBoxLayout(self)
+        self.tab2.layout.addWidget(self.tableWidget)
+        self.tab2.setLayout(self.tab2.layout)
+
+        self.tableWidget.setItem(0, 0, QTableWidgetItem("nom ?"))
+        self.tableWidget.setItem(1, 0, QTableWidgetItem("Prenom ?"))
+
+
+        # Add tabs to widget
+        self.layout.addWidget(self.tabs)
+        self.setLayout(self.layout)
+
+    def openClick(self):
+        print("click")
+        nom,type = QInputDialog.getText(self,"input dialog","Votre Nom ?",QLineEdit.Normal,"")
+        print(nom)
